@@ -1,0 +1,33 @@
+product_id,product_name,category,unit_price,supplier_id,product_details_missing
+P030,Product P030,Office Supplies,76.48,SUP005,False
+P016,Product P016,Electronics,24.52,SUP001,False
+P025,Product P025,Office Supplies,140.26,SUP005,False
+P018,Product P018,Home & Garden,107.56,SUP003,False
+P009,Product P009,Food & Beverage,67.73,SUP004,False
+P010,Product P010,Office Supplies,237.08,SUP005,False
+P026,Product P026,Electronics,54.13,SUP001,False
+P013,Product P013,Home & Garden,37.22,SUP003,False
+P001,Product P001,Electronics,157.39,SUP001,False
+P005,Product P005,Office Supplies,141.61,SUP005,False
+P017,Product P017,Apparel,126.96,SUP002,False
+P006,Product P006,Electronics,242.36,SUP001,False
+P014,Product P014,Food & Beverage,27.98,SUP004,False
+P012,Product P012,Apparel,123.17,SUP002,False
+P024,Product P024,Food & Beverage,196.20,SUP004,False
+P002,Product P002,Apparel,147.38,SUP002,False
+P003,Product P003,Home & Garden,134.20,SUP003,False
+P027,Product P027,Apparel,195.34,SUP002,False
+P004,Product P004,Food & Beverage,10.53,SUP004,False
+P022,Product P022,Apparel,216.88,SUP002,False
+P028,Product P028,Home & Garden,69.62,SUP003,False
+P023,Product P023,Home & Garden,108.28,SUP003,False
+P019,Product P019,Food & Beverage,193.38,SUP004,False
+P021,Product P021,Electronics,129.12,SUP001,False
+P008,Product P008,Home & Garden,12.81,SUP003,False
+P011,Product P011,Electronics,224.93,SUP001,False
+P015,Product P015,Office Supplies,245.84,SUP005,False
+P029,Product P029,Food & Beverage,155.01,SUP004,False
+P020,Product P020,Office Supplies,26.47,SUP005,False
+P007,Product P007,Apparel,104.92,SUP002,False
+P031,Product P031,Unknown,,Unknown,True
+P032,Product P032,Unknown,,Unknown,True

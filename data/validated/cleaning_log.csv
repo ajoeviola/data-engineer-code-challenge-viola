@@ -1,0 +1,15 @@
+Issue,File,Count,Decision,Rationale
+`region` blank for both stores with state 'OR',stores,2,"Filled `region` with ""West""","Based on the other state/region columns, we can impute the region ""West"" here."
+`S007` appears twice with different store_names,stores,2 rows (1 dropped),Dropped one row (kept the first in file order),It's the same record.
+Invalid zip codes,stores,1,Kept `zip_code` as text; flagged zips that are not 5 digits in `zip_code_invalid`; not imputed,"Text avoids truncating leading/trailing zeros. It's too risky to impute new zips without being sure, but if zip code isn't necessary for analytics, it can be safe to keep in the data for now."
+Products with no `category`,products,5,Filled from the category of other products with the same `supplier_id`,Each supplier maps to exactly one category.
+Exact duplicate rows,products,1,Dropped,— (no rationale given)
+`P005` appears twice with different prices,products,2 rows (1 dropped),Kept the row whose price matches the transactions `unit_price`,Only one matches the price in the transactions table.
+`P027` has a catalog price of 0.00,products,1,Imputed the price from the transactions `unit_price` (195.34),It has a price in the transactions table.
+Exact duplicate rows,transactions,15,Deduplicated,— (no rationale given)
+`$` in `total_amount`,transactions,25,"Removed `$`, cast `total_amount` to a decimal number",— (no rationale given)
+`quantity` and `total_amount` both 0,transactions,5,Dropped; saved to `transactions_dropped_zero_quantity.csv` for the client,We drop them so they don't skew average transaction value or revenue tracking.
+Mixed date formats; day/month ambiguous where both <= 12,transactions,485 dates cast; 7 rows (7 values) resolved by decision,Cast to YYYY-MM-DD; ambiguous values resolved as listed in the config,"The dates range from March to June: 01-04-2026 (TXN10011) is April 1st; 04/12/2026 and 04/01/2026 are April; 05/07/2026 is May; 12-03-2026 is March; 05/05/2026 can go either way, so it doesn't matter. That leaves one record, 06-04-2026, which is June 4th, 2026."
+Negative values are returns matching earlier sales,transactions,30 returns + 30 matched sales,"Flagged both (`is_return`, `is_returned_sale`, `exclude_from_metrics`); kept in the data","So they aren't counted in revenue or other metrics, but aren't dropped, so we can still track them as needed."
+Stores in transactions but not in the stores file,stores,4 stores (5 transactions),"Added placeholder stores (details `Unknown`, `store_details_missing` = True); sales kept; saved to `stores_missing_from_source.csv` for the client",— (no rationale given)
+Products in transactions but not in the products file,products,2 products (3 transactions),"Added placeholder products (category and supplier `Unknown`, blank catalog price, `product_details_missing` = True); sales kept; saved to `products_missing_from_source.csv` for the client",— (no rationale given)
